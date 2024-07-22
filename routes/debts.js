@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Debt = require('../models/debt');
+const Debt = require("../models/debt");
 
 // Obtener todas las deudas
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const debts = await Debt.find();
     res.json(debts);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Crear una nueva deuda
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   const debt = new Debt({
     creditor: req.body.creditor,
     amount: req.body.amount,
